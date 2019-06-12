@@ -1,5 +1,8 @@
 const { createServer } = require('http');
 
+const port = 3003;
+const host = '0.0.0.0';
+
 createServer((request, response) => {
 	let body = '';
 	request.on('data', data => body += data);
@@ -16,6 +19,6 @@ createServer((request, response) => {
 		response.writeHead(200, { 'Content-Type': 'application/json' });
 		response.end(reply);
 	});
-}).listen(3003, '0.0.0.0');
+}).listen(port, host);
 
-console.log('Server running a http://localhost:80/');
+console.log(`Server running at ${host}:${port}`);
